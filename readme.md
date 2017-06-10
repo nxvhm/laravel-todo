@@ -59,9 +59,9 @@ server {
 ### To install
 1. Clone the repository
 2. Setup db credentials in .env file
-3. run `composer install`
-4. Run Migrations `php artisan migrate`
-5. Seed the DB `php artisan seed`
+3. Install dependencies: `composer install`
+4. Run Migrations: `php artisan migrate`
+5. Seed the DB: `php artisan seed`
 6. Setup the server
 
 ### Demo users
