@@ -61,7 +61,7 @@ server {
 2. Setup db credentials in .env file
 3. Install dependencies: `composer install`
 4. Run Migrations: `php artisan migrate`
-5. Seed the DB: `php artisan seed`
+5. Seed the DB: `php artisan db:seed`
 6. Setup the server
 
 ### Demo users
