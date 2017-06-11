@@ -140,7 +140,6 @@
 
                       @if($list->is_archived == 0)
                       <div class="pull-right ">
-                          <button class="btn btn-success btn-sm"><i class=" fa fa-check"></i></button>
                           {{-- Edit Task Btn --}}
                           <span data-toggle="tooltip" title="Edit Task">
                             <button class="btn btn-primary btn-sm"
@@ -198,7 +197,6 @@
               <span class="badge badge-sm label-success created_at"></span>
               <span class="badge badge-sm task-status"></span>
               <div class="pull-right">
-                  <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
 
                   {{-- Edit Task Btn --}}
                   <span data-toggle="tooltip" title="Edit Task">
