@@ -5,10 +5,15 @@
 <section class="panel tasks-widget">
 	<header class="panel-heading">
       <span class="title pull-left"> 
+        @if($list->is_archived == 0)
         <span data-toggle='tooltip' title='Edit List' class="cursor-pointer listTitleEdit">
           <i class="fa fa-edit" 
             data-toggle="modal" 
             data-target="#editListModal"></i>
+        @else
+        <span data-toggle='tooltip' title='List is archived. No Edits allowed' class="cursor-pointer listTitleEdit">
+          <i class="fa fa-edit"></i>
+        @endif
         </span>
         {{$list->name}}
 

@@ -25,7 +25,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/dashboard/tasks', 'DashboardController@showTasks')->name('dashboard.tasks');
 
-Route::resource('lists', 'TaskListsController');
+Route::resource('lists', 'TaskListsController', ['except' => ['create', 'edit']]);
 
 Route::post('/lists/deleteRequest', 'TaskListsController@makeDeleteRequest')->name('lists.deleteRequest');
 
