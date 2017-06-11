@@ -5,6 +5,7 @@
  */
 function attachFormSubmitListener($form) {
 	$form.on('submit', function(e){
+		var $errorPlaceholder = $form.find('.errorPlaceholder');		
 		// Prevent form from submiting
 		e.preventDefault();
 		var formDataArray = {};
@@ -18,6 +19,11 @@ function attachFormSubmitListener($form) {
 			data: formDataArray,
 		}).then(function(data){
 			if (data.success && data.success == 1) {
+
+				if (!$errorPlaceholder.hasClass('hidden')) {
+					$errorPlaceholder.addClass('hidden');
+				}
+
 				if (data.redirectUrl) {
 					window.location.replace(data.redirectUrl);
 				} else if ($form.data('redirect-url')) {
@@ -28,9 +34,11 @@ function attachFormSubmitListener($form) {
 			}
 			if (data.error && data.error == 1) {
 				if($form.find('.errorPlaceholder')){
-					$form.find('.errorPlaceholder')
-						.toggleClass('hidden')
-						.html(data.msg);
+
+					if ($errorPlaceholder.hasClass('hidden')) {
+						$errorPlaceholder.removeClass('hidden');
+					}
+					
 				}
 			}
 			console.log(data);
@@ -38,11 +46,11 @@ function attachFormSubmitListener($form) {
 
 			// Error Handler
 			if(data.responseJSON && data.responseJSON.email) {
-				if($form.find('.errorPlaceholder')){
-					$form.find('.errorPlaceholder')
-						.toggleClass('hidden')
-						.html(data.responseJSON.email);
-				}
+				if ($errorPlaceholder.hasClass('hidden')) {
+					$errorPlaceholder
+					.removeClass('hidden')
+					.html(data.responseJSON.email);
+				}				
 			}
 
 			console.log('error', data.responseJSON);			
